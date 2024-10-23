@@ -5,6 +5,12 @@ Supports up to 16 different teams, Lockout and Blackout modes, and the ability t
 
 ![image](https://cdn.modrinth.com/data/cached_images/6633be32057318a43ba0b52fd91f458c9cd31035.png)
 
+## Fork
+This is a fork of [Lockout-fabric](https://github.com/marin774/lockout-fabric/releases) by marin774, intended for play between me and my friends and not anything special.
+Some Changes:
+- Implemented a fix proposed by [sonoersi](https://github.com/marin774/lockout-fabric/pull/5) for rejoining a multiplayer match
+- Added new goal for adding a jeb_ name tag to a sheep to make it rainbow
+
 ## Client side installation
 Make a 1.20.1 instance with Fabric Loader, add [Lockout](https://github.com/marin774/lockout-fabric/releases) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) to your mods folder.
 
