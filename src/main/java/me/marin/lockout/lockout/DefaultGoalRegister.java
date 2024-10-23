@@ -21,6 +21,7 @@ import me.marin.lockout.lockout.goals.experience.ReachXPLevel15Goal;
 import me.marin.lockout.lockout.goals.experience.ReachXPLevel30Goal;
 import me.marin.lockout.lockout.goals.have_more.HaveMostUniqueCraftsGoal;
 import me.marin.lockout.lockout.goals.have_more.HaveMostXPLevelsGoal;
+import me.marin.lockout.lockout.goals.huskslay.*;
 import me.marin.lockout.lockout.goals.kill.*;
 import me.marin.lockout.lockout.goals.kill.unique.Kill10UniqueHostileMobsGoal;
 import me.marin.lockout.lockout.goals.kill.unique.Kill13UniqueHostileMobsGoal;
@@ -443,6 +444,7 @@ public class DefaultGoalRegister {
                 return List.of(StructureKeys.OCEAN_RUIN_WARM, StructureKeys.TRAIL_RUINS);
             }
         });
+        INSTANCE.register(GoalType.MAKE_RAINBOW_SHEEP, MakeRainbowSheepGoal.class);
     }
 
 }

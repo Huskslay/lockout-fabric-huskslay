@@ -24,6 +24,7 @@
     "server.ItemFrameEntityMixin",
     "server.ItemMixin",
     "server.LivingEntityMixin",
+    "server.NameTagItemMixin",
     "server.PlayerAdvancementTrackerMixin",
     "server.PlayerInventoryAccessor",
     "server.PlayerMixin",
