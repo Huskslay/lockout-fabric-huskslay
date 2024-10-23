@@ -7,6 +7,7 @@ Supports up to 16 different teams, Lockout and Blackout modes, and the ability t
 
 ## Fork
 This is a fork of [Lockout-fabric](https://github.com/marin774/lockout-fabric/releases) by marin774, intended for play between me and my friends and not anything special.
+
 Some Changes:
 - Implemented a fix proposed by [sonoersi](https://github.com/marin774/lockout-fabric/pull/5) for rejoining a multiplayer match
 - Added new goal for adding a jeb_ name tag to a sheep to make it rainbow
