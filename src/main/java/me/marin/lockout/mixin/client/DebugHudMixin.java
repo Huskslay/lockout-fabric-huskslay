@@ -76,7 +76,7 @@ public abstract class DebugHudMixin {
             this.resetChunk();
         }
 
-        text.add("Minecraft " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")");
+        text.add("Minecraft " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + "/Huskslay)");
         text.add(this.client.fpsDebugString);
         text.add(this.client.worldRenderer.getChunksDebugString()); // C value
         text.add(this.client.worldRenderer.getEntitiesDebugString()); // E value
