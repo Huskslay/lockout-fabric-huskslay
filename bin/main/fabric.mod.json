@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "lockout",
+  "version": "${version}",
+  "name": "Lockout",
+  "description": "Lockout Bingo with over 200 goals. Developed by Mar1n, heavily inspired by Smallant's Lockout Bingo mod.",
+  "authors": ["Mar1n"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "accessWidener": "lockout.accesswidener",
+  "entrypoints": {
+    "client": [
+      "me.marin.lockout.client.LockoutClient"
+    ],
+    "server": [
+      "me.marin.lockout.server.LockoutDedicatedServer"
+    ],
+    "main": [
+      "me.marin.lockout.LockoutInitializer"
+    ]
+  },
+  "mixins": [
+    "Lockout.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
