@@ -14,7 +14,7 @@ public class MakeRainbowSheepGoal extends Goal implements TextureProvider {
 
     @Override
     public String getGoalName() {
-        return "Make a Rainbow Sheep with jeb_ Name Tag";
+        return "Use a jeb_ Name Tag on a Sheep";
     }
 
     @Override
