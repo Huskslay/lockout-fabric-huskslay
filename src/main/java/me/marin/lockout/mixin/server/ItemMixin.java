@@ -20,7 +20,8 @@ public class ItemMixin {
 
     @Inject(method = "use", at = @At("HEAD"))
     public void onUseCompass(World world, PlayerEntity player, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
-        if (player.getWorld().isClient) return;
+        World _world = player.getWorld();
+        if (_world.isClient) return;
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
 

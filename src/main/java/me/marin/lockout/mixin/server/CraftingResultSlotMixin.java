@@ -13,6 +13,7 @@ import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,7 +36,8 @@ public class CraftingResultSlotMixin {
 
     @Inject(method = "onCrafted(Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"))
     public void onCraft(ItemStack stack, CallbackInfo ci) {
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
 

@@ -61,7 +61,8 @@ public abstract class BreedUniqueAnimalsGoal extends Goal implements RequiresAmo
     @Override
     public boolean renderTexture(DrawContext context, int x, int y, int tick) {
         context.drawTexture(TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
-        context.drawItemInSlot(MinecraftClient.getInstance().textRenderer, DISPLAY_ITEM_STACK, x, y);
+        MinecraftClient client = MinecraftClient.getInstance();
+        context.drawItemInSlot(client.textRenderer, DISPLAY_ITEM_STACK, x, y);
         return true;
     }
 

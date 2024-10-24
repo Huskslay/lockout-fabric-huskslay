@@ -60,7 +60,8 @@ public class BoardBuilderScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+        MinecraftClient client = MinecraftClient.getInstance();
+        TextRenderer textRenderer = client.textRenderer;
 
         int centerX = width / 2;
         int centerY = height / 2;
@@ -227,7 +228,8 @@ public class BoardBuilderScreen extends Screen {
                         .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.of("Click to open boards directory.")))
                         .withFormatting(Formatting.WHITE)
         );
-        MinecraftClient.getInstance().player.sendMessage(Text.literal("Saved custom board as " + boardName + BoardBuilderIO.FILE_EXTENSION + "!\n").formatted(Formatting.GREEN).append(openBoardFile).append(" ").append(openBoardsDirectory));
+        MinecraftClient client = MinecraftClient.getInstance();
+        client.player.sendMessage(Text.literal("Saved custom board as " + boardName + BoardBuilderIO.FILE_EXTENSION + "!\n").formatted(Formatting.GREEN).append(openBoardFile).append(" ").append(openBoardsDirectory));
         close();
     }
 
@@ -333,7 +335,8 @@ public class BoardBuilderScreen extends Screen {
     }
 
     public void drawCenterBoard(DrawContext context, int mouseX, int mouseY) {
-        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+        MinecraftClient client = MinecraftClient.getInstance();
+        TextRenderer textRenderer = client.textRenderer;
 
         int x = width / 2 - Constants.GUI_CENTER_WIDTH / 2 - CENTER_OFFSET;
         int y = height / 2 - Constants.GUI_CENTER_HEIGHT / 2;

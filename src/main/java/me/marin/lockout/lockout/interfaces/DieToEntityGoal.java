@@ -15,6 +15,6 @@ public abstract class DieToEntityGoal extends Goal {
         return null;
     }
 
-    public abstract EntityType getEntityType();
+    public abstract EntityType<?> getEntityType();
 
 }

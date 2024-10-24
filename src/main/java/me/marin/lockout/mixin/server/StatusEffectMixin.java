@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,7 +23,8 @@ public class StatusEffectMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         if (!(entity instanceof PlayerEntity player)) return;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         for (Goal goal : lockout.getBoard().getGoals()) {
             if (goal == null) continue;

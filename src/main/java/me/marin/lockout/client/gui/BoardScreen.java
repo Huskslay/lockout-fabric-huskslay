@@ -18,7 +18,8 @@ public class BoardScreen extends HandledScreen<BoardScreenHandler> {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         this.renderBackground(context);
-        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+        MinecraftClient client = MinecraftClient.getInstance();
+        TextRenderer textRenderer = client.textRenderer;
 
         Utility.drawCenterBingoBoard(context, textRenderer, mouseX, mouseY);
         Goal hoveredGoal = Utility.getBoardHoveredGoal(context, mouseX, mouseY);

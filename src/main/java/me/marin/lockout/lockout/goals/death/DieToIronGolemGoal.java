@@ -18,7 +18,7 @@ public class DieToIronGolemGoal extends DieToEntityGoal implements TextureProvid
     }
 
     @Override
-    public EntityType getEntityType() {
+    public EntityType<?> getEntityType() {
         return EntityType.IRON_GOLEM;
     }
 

@@ -15,7 +15,7 @@ public class IntegratedServerMixin {
         // world done loading
         if (!cir.getReturnValueZ()) return;
 
-        IntegratedServer server = (IntegratedServer) (Object) this;
+        //IntegratedServer server = (IntegratedServer) (Object) this;
 
         LockoutServer.initializeServer();
     }

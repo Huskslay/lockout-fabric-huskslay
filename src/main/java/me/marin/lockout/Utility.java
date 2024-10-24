@@ -22,7 +22,8 @@ import static me.marin.lockout.client.gui.BoardBuilderScreen.CENTER_OFFSET;
 public class Utility {
 
     public static void drawBingoBoard(DrawContext context, int x, int y) {
-        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+        MinecraftClient client = MinecraftClient.getInstance();
+        TextRenderer textRenderer = client.textRenderer;
 
         context.drawTexture(Constants.GUI_IDENTIFIER, x, y, 0, 0, GUI_WIDTH, GUI_HEIGHT, GUI_WIDTH, GUI_HEIGHT);
 

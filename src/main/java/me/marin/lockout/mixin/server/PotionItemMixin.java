@@ -21,7 +21,8 @@ public class PotionItemMixin {
     @Inject(method = "finishUsing", at = @At("HEAD"))
     public void finishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
         if (!(user instanceof PlayerEntity player)) return;
-        if (player.getWorld().isClient) return;
+        World _world = player.getWorld();
+        if (_world.isClient) return;
 
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;

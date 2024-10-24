@@ -6,6 +6,7 @@ import me.marin.lockout.lockout.goals.misc.AngerZombifiedPiglinGoal;
 import me.marin.lockout.server.LockoutServer;
 import net.minecraft.entity.mob.ZombifiedPiglinEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,7 +19,8 @@ public class ZombifiedPiglinEntityMixin {
 
     @Inject(method = "setAngryAt", at = @At("HEAD"))
     public void setAngryAt(UUID angryAt, CallbackInfo ci) {
-        if (((ZombifiedPiglinEntity) (Object) this).getWorld().isClient) return;
+        World world = ((ZombifiedPiglinEntity) (Object) this).getWorld();
+        if (world.isClient) return;
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         ServerPlayerEntity player = ((ZombifiedPiglinEntity) (Object) this).getServer().getPlayerManager().getPlayer(angryAt);

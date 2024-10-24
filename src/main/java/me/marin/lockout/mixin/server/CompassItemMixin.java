@@ -23,7 +23,8 @@ public class CompassItemMixin {
 
     @Inject(method = "inventoryTick", at = @At("HEAD"), cancellable = true)
     public void onInventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
-        if (entity.getWorld().isClient) return;
+        World _world = entity.getWorld();
+        if (_world.isClient) return;
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         if (!(entity instanceof PlayerEntity player)) return;

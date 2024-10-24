@@ -58,7 +58,8 @@ public class Obtain6UniqueFlowersGoal extends ObtainSomeOfTheItemsGoal {
     @Override
     public boolean renderTexture(DrawContext context, int x, int y, int tick) {
         super.renderTexture(context, x, y, tick);
-        context.drawItemInSlot(MinecraftClient.getInstance().textRenderer, ITEM_STACK, x, y);
+        MinecraftClient client = MinecraftClient.getInstance();
+        context.drawItemInSlot(client.textRenderer, ITEM_STACK, x, y);
         return true;
     }
 

@@ -105,9 +105,10 @@ public class LockoutClient implements ClientModInitializer {
         });
         ClientPlayNetworking.registerGlobalReceiver(Constants.START_LOCKOUT_PACKET, (client, handler, buf, responseSender) -> {
             lockout.setStarted(true);
+            MinecraftClient _client = MinecraftClient.getInstance();
             client.execute(() -> {
-                if (MinecraftClient.getInstance().currentScreen != null) {
-                    MinecraftClient.getInstance().currentScreen.close();
+                if (_client.currentScreen != null) {
+                  _client.currentScreen.close();
                 }
             });
         });

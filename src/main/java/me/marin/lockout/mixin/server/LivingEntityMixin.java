@@ -8,6 +8,7 @@ import me.marin.lockout.server.LockoutServer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +22,8 @@ public class LivingEntityMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         if (!(source.getAttacker() instanceof PlayerEntity player) || !cir.getReturnValue()) return;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         if (!lockout.isLockoutPlayer(player.getUuid())) return;
         LockoutTeamServer team = (LockoutTeamServer) lockout.getPlayerTeam(player.getUuid());

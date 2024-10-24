@@ -7,6 +7,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +22,8 @@ public class ServerPlayerEntityMixin {
         if (!Lockout.isLockoutRunning(lockout)) return;
 
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         int i = 0;
         for (ItemStack item : player.getInventory().main) {

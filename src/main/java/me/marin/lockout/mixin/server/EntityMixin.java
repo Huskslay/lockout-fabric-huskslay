@@ -6,6 +6,7 @@ import me.marin.lockout.lockout.goals.opponent.OpponentCatchesOnFireGoal;
 import me.marin.lockout.server.LockoutServer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,7 +20,8 @@ public class EntityMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         if (!((Entity) (Object) this instanceof PlayerEntity player) || !onFire) return;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         for (Goal goal : lockout.getBoard().getGoals()) {
             if (goal == null) continue;

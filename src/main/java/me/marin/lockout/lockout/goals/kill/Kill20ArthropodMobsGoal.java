@@ -75,7 +75,8 @@ public class Kill20ArthropodMobsGoal extends KillSpecificMobsGoal implements Cyc
     @Override
     public boolean renderTexture(DrawContext context, int x, int y, int tick) {
         CycleTexturesProvider.super.renderTexture(context, x, y, tick);
-        context.drawItemInSlot(MinecraftClient.getInstance().textRenderer, ITEM_STACK, x, y);
+        MinecraftClient client = MinecraftClient.getInstance();
+        context.drawItemInSlot(client.textRenderer, ITEM_STACK, x, y);
         return true;
     }
 

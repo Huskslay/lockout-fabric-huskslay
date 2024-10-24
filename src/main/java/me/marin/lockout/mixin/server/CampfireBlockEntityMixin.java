@@ -8,6 +8,7 @@ import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,7 +19,8 @@ public class CampfireBlockEntityMixin {
 
     @Inject(method = "addItem", at = @At("RETURN"))
     public void addItem(Entity user, ItemStack stack, int cookTime, CallbackInfoReturnable<Boolean> cir) {
-        if (user.getWorld().isClient) return;
+        World world = user.getWorld();
+        if (world.isClient) return;
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         if (!(user instanceof PlayerEntity player) || !cir.getReturnValueZ()) return;

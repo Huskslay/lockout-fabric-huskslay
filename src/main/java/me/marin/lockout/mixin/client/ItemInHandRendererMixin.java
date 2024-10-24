@@ -17,7 +17,8 @@ public class ItemInHandRendererMixin {
 
     @Inject(method = "applyEquipOffset", at = @At("HEAD"), cancellable = true)
     public void render(MatrixStack matrices, Arm arm, float equipProgress, CallbackInfo ci) {
-        PlayerEntity player = MinecraftClient.getInstance().player;
+        MinecraftClient client = MinecraftClient.getInstance();
+        PlayerEntity player = client.player;
         if (player == null) return;
         ItemStack stack = arm == player.getMainArm() ? player.getMainHandStack() : player.getOffHandStack();
         if (!CompassItemHandler.isCompass(stack)) return;

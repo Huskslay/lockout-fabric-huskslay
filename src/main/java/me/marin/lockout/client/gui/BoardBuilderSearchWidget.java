@@ -138,7 +138,8 @@ public class BoardBuilderSearchWidget extends ScrollableWidget {
 
         @Override
         public void render(DrawContext context, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
-            TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+            MinecraftClient client = MinecraftClient.getInstance();
+            TextRenderer textRenderer = client.textRenderer;
 
             goal.render(context, textRenderer, x, y);
             context.drawTextWithShadow(textRenderer, display, x + 18, y + 5, Color.WHITE.getRGB());

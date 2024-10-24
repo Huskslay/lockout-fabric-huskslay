@@ -18,7 +18,7 @@ public class DieToPolarBearGoal extends DieToEntityGoal implements TextureProvid
     }
 
     @Override
-    public EntityType getEntityType() {
+    public EntityType<?> getEntityType() {
         return EntityType.POLAR_BEAR;
     }
 

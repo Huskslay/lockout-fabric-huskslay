@@ -18,7 +18,8 @@ public class GlowInkSacItemMixin {
 
     @Inject(method="useOnSign", at = @At("RETURN"))
     public void useOnSign(World world, SignBlockEntity signBlockEntity, boolean front, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        if (player.getWorld().isClient) return;
+        World _world = player.getWorld();
+        if (_world.isClient) return;
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         if (!cir.getReturnValue()) return;

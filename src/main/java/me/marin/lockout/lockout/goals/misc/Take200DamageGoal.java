@@ -4,7 +4,6 @@ import me.marin.lockout.Constants;
 import me.marin.lockout.LockoutTeam;
 import me.marin.lockout.lockout.Goal;
 import me.marin.lockout.lockout.interfaces.HasTooltipInfo;
-import me.marin.lockout.lockout.texture.CustomTextureRenderer;
 import me.marin.lockout.lockout.texture.TextureProvider;
 import me.marin.lockout.server.LockoutServer;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +16,7 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Take200DamageGoal extends Goal implements TextureProvider, CustomTextureRenderer, HasTooltipInfo {
+public class Take200DamageGoal extends Goal implements TextureProvider, HasTooltipInfo {
 
     private final static ItemStack DISPLAY_ITEM_STACK = Items.RED_DYE.getDefaultStack();
     static {
@@ -46,7 +45,8 @@ public class Take200DamageGoal extends Goal implements TextureProvider, CustomTe
     @Override
     public boolean renderTexture(DrawContext context, int x, int y, int tick) {
         context.drawTexture(TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
-        context.drawItemInSlot(MinecraftClient.getInstance().textRenderer, DISPLAY_ITEM_STACK, x, y, "200");
+        MinecraftClient client = MinecraftClient.getInstance();
+        context.drawItemInSlot(client.textRenderer, DISPLAY_ITEM_STACK, x, y, "200");
         return true;
     }
 

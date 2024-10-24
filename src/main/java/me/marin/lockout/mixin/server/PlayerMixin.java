@@ -43,7 +43,8 @@ public abstract class PlayerMixin {
         if (!Lockout.isLockoutRunning(lockout)) return;
 
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
         if (!lockout.isLockoutPlayer(player)) return;
 
         if (CompassItemHandler.isCompass(stack)) {
@@ -58,7 +59,8 @@ public abstract class PlayerMixin {
         if (!Lockout.isLockoutRunning(lockout)) return;
 
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+      if (world.isClient) return;
 
         for (Goal goal : lockout.getBoard().getGoals()) {
             if (goal == null) continue;
@@ -86,7 +88,8 @@ public abstract class PlayerMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+      if (world.isClient) return;
         if (!lockout.hasStarted()) {
             cir.setReturnValue(false);
         }
@@ -99,7 +102,8 @@ public abstract class PlayerMixin {
         if (!cir.getReturnValue()) return;
 
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+      if (world.isClient) return;
 
         if (!lockout.isLockoutPlayer(player.getUuid())) return;
         LockoutTeamServer team = (LockoutTeamServer) lockout.getPlayerTeam(player.getUuid());
@@ -133,7 +137,8 @@ public abstract class PlayerMixin {
     @Inject(method="eatFood", at = @At("HEAD"))
     public void onEat(World world, ItemStack itemStack, CallbackInfoReturnable<ItemStack> cir) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World _world = player.getWorld();
+        if (_world.isClient) return;
 
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
@@ -175,7 +180,8 @@ public abstract class PlayerMixin {
     @Inject(method = "incrementStat(Lnet/minecraft/util/Identifier;)V", at = @At("HEAD"))
     public void onIncrementStat(Identifier stat, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
@@ -198,7 +204,8 @@ public abstract class PlayerMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         for (Goal goal : lockout.getBoard().getGoals()) {
             if (goal == null) continue;
@@ -219,7 +226,8 @@ public abstract class PlayerMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         for (Goal goal : lockout.getBoard().getGoals()) {
             if (goal == null) continue;
@@ -238,7 +246,8 @@ public abstract class PlayerMixin {
         Lockout lockout = LockoutServer.lockout;
         if (!Lockout.isLockoutRunning(lockout)) return;
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getWorld().isClient) return;
+        World world = player.getWorld();
+        if (world.isClient) return;
 
         for (Goal goal : lockout.getBoard().getGoals()) {
             if (goal == null) continue;

@@ -30,7 +30,8 @@ public class Sprint1KmGoal extends Goal implements CustomTextureRenderer {
     @Override
     public boolean renderTexture(DrawContext context, int x, int y, int tick) {
         context.drawTexture(TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
-        context.drawItemInSlot(MinecraftClient.getInstance().textRenderer,  ITEM_STACK, x, y, "1km");
+        MinecraftClient client = MinecraftClient.getInstance();
+        context.drawItemInSlot(client.textRenderer,  ITEM_STACK, x, y, "1km");
         return true;
     }
 }
