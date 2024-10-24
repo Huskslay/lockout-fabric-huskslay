@@ -31,22 +31,15 @@ public class NameTagItemMixin {
          if (goal == null) continue;
          if (goal.isCompleted()) continue;
 
-         if (!(goal instanceof MakeRainbowSheepGoal)) return;
+         if (!(goal instanceof MakeRainbowSheepGoal)) continue;
 
          if (cir.getReturnValue() != ActionResult.CONSUME) return;
          if (!(entity instanceof SheepEntity)) return;
 
          NbtCompound comp = stack.getNbt();
          if (comp == null) return;
-
-         comp = comp.getCompound("display");
-         String text = comp.getString("Name").substring(9);
-         text = text.substring(0, text.length() - 2);
-
-         if (!text.equals("jeb_")) return;
-
-         lockout.completeGoal(goal, player);
-
+         String txt = comp.getCompound("display").getString("Name");
+         if (txt.equals("{\"text\":\"jeb_\"}")) lockout.completeGoal(goal, player);
       }
 
    }
